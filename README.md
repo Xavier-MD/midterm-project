@@ -4,7 +4,7 @@ LHL Node Skeleton
 ## Project Setup
 
 The following steps are only for _one_ of the group members to perform.
-Test
+
 1. Create your own copy of this repo using the `Use This Template` button, ideally using the name of your project. The repo should be marked Public
 2. Verify that the skeleton code now shows up in your repo on GitHub, you should be automatically redirected
 3. Clone your copy of the repo to your dev machine
@@ -23,7 +23,7 @@ Test
 4. Fix to binaries for sass: `npm rebuild node-sass`
 5. Reset database: `npm run db:reset`
   - Check the db folder to see what gets created and seeded in the SDB
-7. Run the server: `npm run local`
+7. Run the server: `npm run local`npm
   - Note: nodemon is used, so you should not have to restart your server
 8. Visit `http://localhost:8080/`
 
