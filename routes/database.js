@@ -13,7 +13,7 @@ const pool = new Pool({
  * @param {*} email
  * @returns found user or undefined
  */
-const getUserWithEmail = function (email) {
+const getUserWithEmail = function(email) {
   return pool.query(`
     SELECT *
     FROM users
@@ -32,7 +32,7 @@ const getUserWithEmail = function (email) {
  * @param {*} user
  * @returns newly created user
  */
-const addUser = function (user) {
+const addUser = function(user) {
 
   return pool.query(`
     INSERT INTO users (name, email, password,admin)
@@ -53,7 +53,7 @@ const addUser = function (user) {
  * @param {*} limit
  * @returns all items, possibly filtered
  */
-const getAllItems = function (options, limit = 10) {
+const getAllItems = function(options, limit = 10) {
   const queryParams = [];
 
   // Start query
@@ -96,7 +96,7 @@ const getAllItems = function (options, limit = 10) {
  * @param {} item
  * @returns newly created item
  */
-const addItem = function (item) {
+const addItem = function(item) {
 
   return pool.query(`
     INSERT INTO items (
@@ -123,7 +123,7 @@ const addItem = function (item) {
  * @param {*} message
  * @returns newly created message
  */
-const addMessage = function (message) {
+const addMessage = function(message) {
   let date = new Date().toLocaleDateString();
   return pool.query(`
     INSERT INTO messages (sender_id ,
@@ -141,11 +141,51 @@ const addMessage = function (message) {
     });
 };
 
+/**
+ * Add a favourite item for the user
+ * @param {*} favourite
+ * @returns
+ */
+const addFavourite = function(favourite) {
+  return pool.query(`
+    INSERT INTO favourites (
+    item_id,
+    user_id)
+    VALUES ($1, $2)
+    RETURNING *;
+  `, [favourite.item_id, favourite.user_id])
+    .then((result) => {
+      return (result.rows[0]);
+    })
+    .catch((err) => {
+      console.log("addFavourite error = " + err.message);
+    });
+};
+
+/**
+ * Remove a favourite item for the user
+ * @param {} favourite
+ * @returns
+ */
+const removeFavourite = function(favourite) {
+  return pool.query(`DELETE FROM favourites
+  WHERE item_id=$1 and user_id=$2;
+  `, [favourite.item_id, favourite.user_id])
+    .then((result) => {
+      return (result.rows);
+    })
+    .catch((err) => {
+      console.log("removeFavourite error = " + err.message);
+    });
+};
+
 exports.addItem = addItem;
 exports.getAllItems = getAllItems;
 exports.addUser = addUser;
 exports.getUserWithEmail = getUserWithEmail;
 exports.addMessage = addMessage;
+exports.addFavourite = addFavourite;
+exports.removeFavourite = removeFavourite;
 
 /*
 getUserWithEmail('betty@gmail.com')
@@ -190,6 +230,12 @@ addItem(addObj)
 
 addMessage({sender_id: 1, recipient_id: 2, text: 'hello there!'})
 .then(result => console.log(result));
-*/
 
+addFavourite({ item_id: 2, user_id: 2 })
+  .then(result => console.log(result));
+
+removeFavourite({ item_id: 2, user_id: 2})
+  .then(result => console.log(result));
 pool.end();
+
+*/
