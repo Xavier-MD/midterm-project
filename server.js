@@ -41,6 +41,11 @@ const userRouter = express.Router();
 userRoutes(userRouter, database);
 app.use('/api/users', userRouter);
 
+const apiRoutes = require("./routes/apiRoutes");
+const apiRouter = express.Router();
+apiRoutes(apiRouter, database);
+app.use('/api', apiRouter);
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // app.use("/api/users", usersRoutes(db));
