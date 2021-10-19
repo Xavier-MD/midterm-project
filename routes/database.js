@@ -78,7 +78,7 @@ const getAllItems = function(options, limit = 10) {
   `;
 
   // Debugging only
-  console.log(queryString, queryParams);
+  //console.log(queryString, queryParams);
 
   // Execute query and return result as a promise
   return pool
