@@ -3,8 +3,21 @@ nav {
   position: fixed;
   top: 0;
   font-family: 'Rampart One', cursive;
+  height: 70px;
+  font-size: larger;
 }
 
 .navbar-nav {
   font-family: 'Staatliches', cursive;
 }
+
+
+.nav-logo-rows {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+
+

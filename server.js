@@ -43,6 +43,11 @@ app.use('/api/users', userRouter);
 
 // API endpoint - /api
 const apiRoutes = require("./routes/apiRoutes");
+//contact Route
+const contactRoutes = require("./routes/contactRoutes");
+app.use(contactRoutes);
+
+
 const apiRouter = express.Router();
 apiRoutes(apiRouter, database);
 app.use('/api', apiRouter);
