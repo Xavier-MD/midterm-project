@@ -26,7 +26,7 @@ module.exports = function(router, database) {
   router.post('/message', (req, res) => {
     //const userId = req.session.userId;
     console.log(req.body);
-    database.addMessage({...req.body})
+    database.addMessage(req.body)
       .then(messages => {
         res.send(messages);
       })

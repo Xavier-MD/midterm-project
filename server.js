@@ -34,6 +34,7 @@ app.use(
 );
 
 app.use(express.static("public"));
+app.use(express.json());
 
 // API endpoint - /api/user
 const userRoutes = require("./routes/userRoutes");
