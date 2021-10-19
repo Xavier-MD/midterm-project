@@ -41,6 +41,7 @@ const userRouter = express.Router();
 userRoutes(userRouter, database);
 app.use('/api/users', userRouter);
 
+// API endpoint - /api
 const apiRoutes = require("./routes/apiRoutes");
 const apiRouter = express.Router();
 apiRoutes(apiRouter, database);
