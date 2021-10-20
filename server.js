@@ -77,6 +77,7 @@ app.use('/api', apiRouter);
 
 app.get("/", (req, res) => {
   res.render("index");
+  templatevars
 });
 
 app.listen(PORT, () => {

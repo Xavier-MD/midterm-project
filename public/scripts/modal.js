@@ -1,12 +1,12 @@
 $().ready(() => {
 
 
-  $("#modal").hide();
+  // $("#modal").hide();
 
 $("#modal").click(function() {
 
   alert("modal clicked");
-  $("#modal").show();
+  // $("#modal").show();
 
   const displayModal = function(itemObject) {
 
