@@ -119,6 +119,24 @@ const addItem = function(item) {
 };
 
 /**
+ * Remove an item by id
+ * @param {*} item
+ * @returns
+ */
+const removeItem = function(itemId) {
+  return pool.query(`DELETE FROM items
+  WHERE id =$1;
+  `, [itemId])
+    .then((result) => {
+      return (result.rows);
+    })
+    .catch((err) => {
+      console.log("removeItem error = " + err.message);
+    });
+};
+
+
+/**
  * Add a new message
  * @param {*} message
  * @returns newly created message
@@ -138,6 +156,21 @@ const addMessage = function(message) {
     })
     .catch((err) => {
       console.log("addMessage error = " + err.message);
+    });
+};
+
+/**
+ * Return all favourites for the user logged in
+ * @returns
+ */
+const getAllFavourites = function() {
+  return pool.query(`SELECT * FROM favourites;
+  `)
+    .then((result) => {
+      return (result.rows);
+    })
+    .catch((err) => {
+      console.log("getAllFavourites error = " + err.message);
     });
 };
 
@@ -167,10 +200,10 @@ const addFavourite = function(favourite) {
  * @param {} favourite
  * @returns
  */
-const removeFavourite = function(favourite) {
+const removeFavourite = function(favouriteId) {
   return pool.query(`DELETE FROM favourites
-  WHERE item_id=$1 and user_id=$2;
-  `, [favourite.item_id, favourite.user_id])
+  WHERE id=$1;
+  `, [favouriteId])
     .then((result) => {
       return (result.rows);
     })
@@ -181,11 +214,13 @@ const removeFavourite = function(favourite) {
 
 exports.addItem = addItem;
 exports.getAllItems = getAllItems;
+exports.removeItem = removeItem;
 exports.addUser = addUser;
 exports.getUserWithEmail = getUserWithEmail;
 exports.addMessage = addMessage;
 exports.addFavourite = addFavourite;
 exports.removeFavourite = removeFavourite;
+exports.getAllFavourites = getAllFavourites;
 
 /*
 getUserWithEmail('betty@gmail.com')
@@ -236,6 +271,11 @@ addFavourite({ item_id: 2, user_id: 2 })
 
 removeFavourite({ item_id: 2, user_id: 2})
   .then(result => console.log(result));
-pool.end();
 
+removeItem({
+  id: 7
+})
+.then(result => console.log(result));
+
+pool.end();
 */
