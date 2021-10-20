@@ -1,6 +1,13 @@
 // See: https://sass-lang.com/
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body,
 html {
-  margin: 0;
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
 }

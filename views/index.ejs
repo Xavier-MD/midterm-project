@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>OUTFIT</title>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -25,24 +25,26 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 
+  <!-- Parallax Slider -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="/path/to/parallax.js"></script>
+
   <!--Disable viewport zooming -->
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
-   <!--Time ago Js-->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!--Time ago Js-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-   <!--Font awesome-->
-   <script src="https://kit.fontawesome.com/0e435b51ac.js" crossorigin="anonymous"></script>
+  <!--Font awesome-->
+  <script src="https://kit.fontawesome.com/0e435b51ac.js" crossorigin="anonymous"></script>
 
 </head>
-
-
 
 <body>
 
   <!-- Top nav bar (fixed) -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="/">
       <i class="fas fa-user-secret"></i>
       OUTFIT
     </a>
@@ -63,13 +65,60 @@
       </ul>
     </div>
   </nav>
-
-  <section id="">
-      <article>
-      </article>
-      <article>
-      </article>
-  </section>
+  <main>
+    <div class="slider">
+      <div class="slider-inner">
+        <div class="item">
+          <div class="img"></div>
+        </div>
+        <div class="item">
+          <div class="img"></div>
+        </div>
+        <div class="item">
+          <div class="img"></div>
+        </div>
+        <div class="item">
+          <div class="img"></div>
+        </div>
+        <div class="item">
+          <div class="img"></div>
+        </div>
+        <div class="item">
+          <div class="img"></div>
+        </div>
+        <div class="item">
+          <div class="img"></div>
+        </div>
+      </div>
+    </div>
+    <div class="slider">
+      <div class="slider-inner">
+        <div class="item">
+          <div class="img"></div>
+        </div>
+        <div class="item">
+          <div class="img"></div>
+        </div>
+        <div class="item">
+          <div class="img"></div>
+        </div>
+        <div class="item">
+          <div class="img"></div>
+        </div>
+        <div class="item">
+          <div class="img"></div>
+        </div>
+        <div class="item">
+          <div class="img"></div>
+        </div>
+        <div class="item">
+          <div class="img"></div>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>
+
+<script type="text/javascript" src="/scripts/invScroller.js"></script>
