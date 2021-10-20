@@ -42,12 +42,24 @@ const userRouter = express.Router();
 userRoutes(userRouter, database);
 app.use('/api/users', userRouter);
 
+// API endpoint - /api/items
+const itemsRoutes = require("./routes/itemsRoutes");
+const itemsRouter = express.Router();
+itemsRoutes(itemsRouter, database);
+app.use('/api/items', itemsRouter);
+
+// API endpoint - /api/favourites
+const favouritesRoutes = require("./routes/favouritesRoutes");
+const favouritesRouter = express.Router();
+favouritesRoutes(favouritesRouter, database);
+app.use('/api/favourites', favouritesRouter);
+
 // API endpoint - /api
 const apiRoutes = require("./routes/apiRoutes");
+
 //contact Route
 const contactRoutes = require("./routes/contactRoutes");
 app.use(contactRoutes);
-
 
 const apiRouter = express.Router();
 apiRoutes(apiRouter, database);
