@@ -1,0 +1,72 @@
+.item-listings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin-top: 350px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.collection-title {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-left: 45px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.scrolling-box {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+
+  overflow-x: scroll;
+}
+
+.item{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+  margin: 5px;
+}
+
+.item-image {
+  height: 400px;
+  width: 400px;
+}
+
+.item-details {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  width: 400px;
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+
+.item-name {
+  font-weight: bold;
+}
+
+.item-price {
+  display: flex;
+  padding-right: 20px;
+}
+
+.item-description {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #807f7f;
+}
+
+.item-post-time {
+  color: #807f7f;
+  font-size: 0.8em;
+}
