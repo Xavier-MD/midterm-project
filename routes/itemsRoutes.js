@@ -30,7 +30,9 @@ module.exports = function(router, database) {
       });
   });
 
-  router.delete('/:id', (req, res) => {
+  router.post('/:id', (req, res) => {
+
+    console.log("request coming from delete route: ",req.params.id);
     database.removeItem(req.params.id, 20)
       .then(items => { res.send({ items }); })
       .catch(e => {

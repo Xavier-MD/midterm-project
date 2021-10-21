@@ -3,8 +3,8 @@ const router = express();
 const database = require('./database');
 
 
-router.get("/delete/:userid", (req,res) => {
-
+router.post("/delete/:userid", (req,res) => {
+console.log("request coming from delete route: ",req);
 
   res.redirect("/");
 });
