@@ -10,6 +10,15 @@ const morgan = require("morgan");
 
 const database = require('./routes/database');
 
+//cookie Parser
+const cookieSession = require('cookie-session');
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}));
+
+
 // PG database client/connection setup
 const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
@@ -60,6 +69,10 @@ const apiRoutes = require("./routes/apiRoutes");
 //contact Route
 const contactRoutes = require("./routes/contactRoutes");
 app.use(contactRoutes);
+
+//login Route
+const loginRoute = require("./routes/loginRoute");
+app.use(loginRoute);
 
 const apiRouter = express.Router();
 apiRoutes(apiRouter, database);
