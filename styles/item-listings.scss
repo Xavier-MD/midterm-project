@@ -4,7 +4,8 @@
   align-items: center;
   height: 100%;
   width: 100%;
-  margin-top: 350px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -68,8 +69,8 @@
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
-  width: 100%;
-  margin: 5px;
+  width: 400px;
+  margin: 10px;
 }
 
 .item-image {
@@ -87,18 +88,24 @@
 }
 
 .item-name {
+  width: 250px;
   font-weight: bold;
+  word-wrap: break-word;
 }
 
 .item-price {
   display: flex;
+  justify-content: flex-end;
+  width: 125px;
   padding-right: 20px;
 }
 
 .item-description {
+  width: 380px;
   margin-top: 10px;
   margin-bottom: 10px;
   color: #807f7f;
+  word-wrap: break-word;
 }
 
 .item-post-time {

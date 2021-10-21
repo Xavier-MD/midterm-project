@@ -84,10 +84,7 @@ const getAllItems = function(options, limit = 10) {
   return pool
     .query(queryString, queryParams)
     .then((result) => {
-      return (result.rows);
-    })
-    .catch((err) => {
-      console.log(err.message);
+      return result.rows;
     });
 };
 
@@ -106,15 +103,13 @@ const addItem = function(item) {
     sold ,
     seller_id ,
     buyer_id ,
-    product_photo_url )
-    VALUES ($1, $2, $3, $4,$5,$6,$7)
+    product_photo_url ,
+    collection_name)
+    VALUES ($1, $2, $3, $4, $5 ,$6 , $7, $8)
     RETURNING *;
-  `, [item.name, item.description, item.price, item.sold, item.seller_id, item.buyer_id, item.product_photo_url])
+  `, [item.name, item.description, item.price, item.sold, item.seller_id, item.buyer_id, item.product_photo_url, item.collection_name])
     .then((result) => {
       return (result.rows[0]);
-    })
-    .catch((err) => {
-      console.log("addItem error = " + err.message);
     });
 };
 
