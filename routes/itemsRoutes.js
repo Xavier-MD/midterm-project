@@ -7,7 +7,7 @@ module.exports = function(router, database) {
   router.get('/', (req, res) => {
     //console.log("query = " + JSON.stringify(req.query));
     database.getAllItems(req.query, 20)
-      .then(items => { res.send({ items }); })
+      .then(items => { res.json( items ); })
       .catch(e => {
         console.error(e);
         res.send(e);
@@ -26,7 +26,7 @@ module.exports = function(router, database) {
       })
       .catch(e => {
         console.error(e);
-        res.send(e);
+        res.status(500).send(e);
       });
   });
 
@@ -40,4 +40,4 @@ module.exports = function(router, database) {
   });
 
   return router;
-}
+};
