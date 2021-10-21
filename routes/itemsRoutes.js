@@ -1,3 +1,7 @@
+const cookieSession = require('cookie-session');
+
+
+
 module.exports = function(router, database) {
 
   router.get('/', (req, res) => {
@@ -11,9 +15,13 @@ module.exports = function(router, database) {
   });
 
   router.post('/', (req, res) => {
-    //const userId = req.session.userId;
-    database.addItem({ ...req.body })
+    const userId = req.session.userid;
+
+    console.log("req body",req.body);
+
+    database.addItem({ ...req.body, buyer_id: userId})
       .then(items => {
+        console.log("Database");
         res.send(items);
       })
       .catch(e => {
