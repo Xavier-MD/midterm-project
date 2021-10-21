@@ -32,7 +32,7 @@ $(document).ready(() => {
         </div>
         <span class="item-description">${itemObject.description}</span>
         <span class="item-post-time">${timeago.format(itemObject.created_at)}</span>
-        <button type="button" class="btn btn-danger item-delete" name="send" data-id=${itemObject.id} value="delete">delete rohit</button>
+        <button type="button" class="btn btn-danger item-delete" name="send" data-id=${itemObject.id} value="delete">delete</button>
       </div>
       `;
       return $item;
