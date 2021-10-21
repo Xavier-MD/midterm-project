@@ -7,27 +7,29 @@ $(document).ready(() => {
     if (itemObject.sold === true) {
       const $item = `
         <div class="item">
-            <img class="item-image" src=https://graphiccentre.com/wp-content/uploads/2018/03/STOCKED_RIDER_90.jpg>
-            <div class="item-details">
-              <span class="item-name">${itemObject.name}</span>
-              <span class="item-price">${itemObject.price}</span>
-            </div>
-            <span class="item-description">${itemObject.description}</span>
-            <span class="item-post-time">${timeago.format(itemObject.created_at).fromNow()}</span>
-          </div>
-        `;
-      return $item;
-    } else {
-      const $item = `
-      <div class="item">
-          <img class="item-image" src=${itemObject.product_photo_url}>
+          <img class="item-image" src=https://graphiccentre.com/wp-content/uploads/2018/03/STOCKED_RIDER_90.jpg>
           <div class="item-details">
             <span class="item-name">${itemObject.name}</span>
             <span class="item-price">${itemObject.price}</span>
           </div>
           <span class="item-description">${itemObject.description}</span>
-          <span class="item-post-time">${timeago.format(itemObject.created_at)}</span>
+          <span class="item-post-time">${timeago.format(itemObject.created_at).fromNow()}</span>
+          <button type="submit" class="btn btn-danger item-delete" name="send" value="delete">delete</button>
         </div>
+        `;
+      return $item;
+    } else {
+      const $item = `
+      <div class="item">
+        <img class="item-image" src=${itemObject.product_photo_url}>
+        <div class="item-details">
+          <span class="item-name">${itemObject.name}</span>
+          <span class="item-price">${itemObject.price}</span>
+        </div>
+        <span class="item-description">${itemObject.description}</span>
+        <span class="item-post-time">${timeago.format(itemObject.created_at)}</span>
+        <button type="submit" class="btn btn-danger item-delete" name="send" value="delete">delete</button>
+      </div>
       `;
       return $item;
     }
