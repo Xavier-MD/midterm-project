@@ -74,6 +74,11 @@ app.use(contactRoutes);
 const loginRoute = require("./routes/loginRoute");
 app.use(loginRoute);
 
+//delete Route
+
+const deleteRoute = require('./routes/deleteRoutes');
+app.use(deleteRoute);
+
 const apiRouter = express.Router();
 apiRoutes(apiRouter, database);
 app.use('/api', apiRouter);
