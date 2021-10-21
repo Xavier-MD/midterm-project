@@ -4,6 +4,7 @@ $(document).ready(() => {
 
   /* Function: Creates Markup For A Given Item */
   const createItemElement = function(itemObject) {
+    console.log(itemObject);
     if (itemObject.sold === true) {
       const $item = `
         <div class="item">
@@ -14,7 +15,10 @@ $(document).ready(() => {
           </div>
           <span class="item-description">${itemObject.description}</span>
           <span class="item-post-time">${timeago.format(itemObject.created_at).fromNow()}</span>
-          <button type="submit" class="btn btn-danger item-delete" name="send" value="delete">delete</button>
+          <form id="delete-item" method="POST" name="deleteitem" action="/api/items/${1}">
+            <button type="submit" class="btn btn-danger item-delete" name="send" value="delete">delete</button>
+          </form>
+
         </div>
         `;
       return $item;
@@ -28,7 +32,7 @@ $(document).ready(() => {
         </div>
         <span class="item-description">${itemObject.description}</span>
         <span class="item-post-time">${timeago.format(itemObject.created_at)}</span>
-        <button type="submit" class="btn btn-danger item-delete" name="send" value="delete">delete</button>
+        <button type="button" class="btn btn-danger item-delete" name="send" data-id=${itemObject.id} value="delete">delete rohit</button>
       </div>
       `;
       return $item;
