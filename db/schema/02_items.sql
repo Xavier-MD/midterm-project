@@ -8,5 +8,6 @@ CREATE TABLE items(
   sold BOOLEAN DEFAULT TRUE,
   seller_id INT REFERENCES users(id) ON DELETE CASCADE,
   buyer_id INT REFERENCES users(id) ON DELETE CASCADE,
-  product_photo_url VARCHAR(255)
+  product_photo_url VARCHAR(255),
+  collection_number VARCHAR(255)
 );
