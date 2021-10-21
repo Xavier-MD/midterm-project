@@ -22,19 +22,36 @@
 }
 
 .collection-title {
+  width: 200px;
   font-size: 1.5em;
   font-weight: bold;
 }
 
-.collection-image {
+#nike .collection-image {
   height: 100px;
   width: 250px;
+}
+
+#supreme .collection-image {
+  height: 80px;
+  width: 250px;
+}
+
+#chanel .collection-image {
+  height: 100px;
+  width: 175px;
+}
+
+#gucci .collection-image {
+  height: 140px;
+  width: 140px;
 }
 
 .collection-buttons {
   display: flex;
   justify-content: space-between;
-  width: 120px;
+  width: 200px;
+  padding-left: 80px;
 }
 
 .button-scroller {
