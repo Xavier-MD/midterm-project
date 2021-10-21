@@ -30,6 +30,7 @@ $().ready(() => {
         alert("Item Deleted");
         //clear the html
         //call the functions to call the data again from the Database and render it on html.
+        renderNikeItems(result);
       },
       error: function(error){
 
