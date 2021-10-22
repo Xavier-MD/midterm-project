@@ -47,10 +47,5 @@ module.exports = function(router, database) {
       .catch(e => res.send(e));
   });
 
-  router.post('/logout', (req, res) => {
-    req.session.userId = null;
-    res.send({});
-  });
-
   return router;
 }

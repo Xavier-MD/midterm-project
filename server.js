@@ -94,16 +94,18 @@ app.use('/api', apiRouter);
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.render("index");
+  const templateVars = { user: req.session.user_id };
+  res.render("index", templateVars);
 });
 app.get("/login", (req, res) => {
-  res.render("login");
+  const templateVars = { user: req.session.user_id };
+  res.render("login", templateVars);
 });
 
 app.get("/search", (req, res) => {
-  res.render("search");
+  const templateVars = { user: req.session.user_id };
+  res.render("search", templateVars);
 });
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

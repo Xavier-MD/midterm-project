@@ -29,4 +29,10 @@ router.post("/login", (req, res) => {
     });
 });
 
+router.get('/logout', (req, res) => {
+  req.session.user_id = null;
+  res.redirect("/");
+});
+
+
 module.exports = router;
