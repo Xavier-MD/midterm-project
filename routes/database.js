@@ -57,18 +57,18 @@ const getAllItems = function(options, limit = 10) {
   const queryParams = [];
 
   // Start query
-  let queryString = `SELECT * FROM items `;
+  let queryString = `SELECT * FROM items WHERE TRUE `;
 
   // Filter for minimum price
   if (options.minPrice) {
     queryParams.push(`${options.minPrice}`);
-    queryString += `WHERE price > $${queryParams.length} `;
+    queryString += `AND price > $${queryParams.length} `;
   }
 
   // Filter for maximum price
   if (options.maxPrice) {
     queryParams.push(`${options.maxPrice}`);
-    queryString += `WHERE price < $${queryParams.length} `;
+    queryString += `AND price < $${queryParams.length} `;
   }
 
   // Finish query
@@ -78,7 +78,7 @@ const getAllItems = function(options, limit = 10) {
   `;
 
   // Debugging only
-  //console.log(queryString, queryParams);
+  console.log(queryString, queryParams);
 
   // Execute query and return result as a promise
   return pool
