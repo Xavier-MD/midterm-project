@@ -95,8 +95,15 @@ app.use('/api', apiRouter);
 
 app.get("/", (req, res) => {
   res.render("index");
-  templatevars
 });
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+app.get("/search", (req, res) => {
+  res.render("search");
+});
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
