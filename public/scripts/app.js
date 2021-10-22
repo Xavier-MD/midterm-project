@@ -4,32 +4,22 @@
 /* Function: Creates Markup For A Given Item */
 const createItemElement = function(itemObject) {
   console.log(itemObject);
-  if (itemObject.sold === true) {
+  if (!itemObject.sold) {
     const $item = `
-    <div class="item">
-    <img class="item-image" src=https://graphiccentre.com/wp-content/uploads/2018/03/STOCKED_RIDER_90.jpg>
-    <div class="item-details">
-    <span class="item-name">${itemObject.name}</span>
-    <span class="item-price">${itemObject.price}</span>
-    </div>
-    <span class="item-description">${itemObject.description}</span>
-    <span class="item-post-time">${timeago.format(itemObject.created_at).fromNow()}</span>
-    </div>
-    `;
-    return $item;
-  } else {
-    const $item = `
-    <div class="item">
-    <img class="item-image" src=${itemObject.product_photo_url}>
-    <div class="item-details">
-    <span class="item-name">${itemObject.name}</span>
-    <span class="item-price">${itemObject.price}</span>
-    </div>
-    <span class="item-description">${itemObject.description}</span>
-    <span class="item-post-time">${timeago.format(itemObject.created_at)}</span>
-    <button type="button" class="btn btn-danger item-delete" name="send" data-id=${itemObject.id} value="delete">delete</button>
-    </div>
-    `;
+      <div class="item">
+        <img class="item-image" src=${itemObject.product_photo_url}>
+        <div class="item-details">
+          <span class="item-name">${itemObject.name}</span>
+          <span class="item-price">${itemObject.price}</span>
+        </div>
+        <span class="item-description">${itemObject.description}</span>
+        <span class="item-post-time">${timeago.format(itemObject.created_at)}</span>
+        <div class="item-buttons">
+          <button type="button" class="btn btn-primary item-buy" name="send" data-id=${itemObject.id} value="delete">Buy</button>
+          <button type="button" class="btn btn-danger item-delete" name="send" data-id=${itemObject.id} value="delete">Delete</button>
+        </div>
+      </div>
+      `;
     return $item;
   }
 };

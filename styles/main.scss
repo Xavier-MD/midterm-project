@@ -26,6 +26,7 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding-left: 30px;
 }
 
 .page-redirect .nav-item {
@@ -37,10 +38,12 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  width: 300px;
+  width: 280px;
 }
 
-.side-pages 
+.side-pages #contact-link {
+  margin-right: 10px;
+}
 
 main {
   display: flex;

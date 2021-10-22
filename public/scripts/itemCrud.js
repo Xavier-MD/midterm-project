@@ -14,19 +14,18 @@ $().ready(() => {
     console.log("Hello");
   });
 
-  //For the Delete button Coding
+  // Delete Button Coding
 
   $(".scrolling-box").on('click','.item-delete',function(e) {
     e.preventDefault();
     const dataId = $(this).attr("data-id");
-    console.log("This works on pressing of delete", dataId);
+    console.log("This works when pressing delete", dataId);
     $.ajax({
       url: "http://localhost:8080/api/items/"+dataId,
       method: "POST",
       success: function(result) {
         alert("Item Deleted");
         $(".scrolling-box").empty();
-        //call the functions to call the data again from the Database and render it on html.
         loadItems();
       },
       error: function(error) {
@@ -34,4 +33,23 @@ $().ready(() => {
     });
   });
 
+  // Buy Button Coding
+
+  $(".scrolling-box").on('click','.item-buy',function(e) {
+    e.preventDefault();
+    const receipt = Math.floor(100000 + Math.random() * 900000);
+    const dataId = $(this).attr("data-id");
+    console.log("This works when pressing buy", dataId);
+    $.ajax({
+      url: "http://localhost:8080/api/items/"+dataId,
+      method: "POST",
+      success: function(result) {
+        alert(`You have purchased this item! Your receipt number is ${receipt}`);
+        $(".scrolling-box").empty();
+        loadItems();
+      },
+      error: function(error) {
+      }
+    });
+  });
 });
