@@ -4,7 +4,8 @@ const database = require('./database');
 
 
 router.get("/contact", (req,res) => {
-  res.render("contact")
+  const templateVars = { user: req.session.user_id };
+  res.render("contact", templateVars);
 });
 
 module.exports = router;
